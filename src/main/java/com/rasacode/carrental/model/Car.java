@@ -1,6 +1,7 @@
 package com.rasacode.carrental.model;
 
 import com.rasacode.carrental.enumeration.FuelType;
+import com.rasacode.carrental.enumeration.GearType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ public class Car {
     private String brand;
     private int year;
     @Enumerated(EnumType.STRING)
-    private String gearAuto;
+    private GearType gearAuto;
     @Enumerated(EnumType.STRING)
     private FuelType fuelType;
     private byte sitCount;

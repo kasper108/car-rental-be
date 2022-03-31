@@ -1,5 +1,6 @@
 package com.rasacode.carrental.model;
 
+import com.rasacode.carrental.enumeration.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +20,10 @@ public class User implements Serializable {
     private Long id;
     private String firstName;
     private String secondName;
-    private Date birthDate;
+    private Date birthDate;         //1978-11-11
     private Long addressId;
-    private boolean admin;
+    @Enumerated(EnumType.STRING)
+    private UserStatus userStatus;
     @Column(unique = true)
     @NotEmpty(message = "IP Address cannot be empty or null")
     private String email;
