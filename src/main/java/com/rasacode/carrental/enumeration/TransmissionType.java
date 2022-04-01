@@ -1,12 +1,12 @@
 package com.rasacode.carrental.enumeration;
 
-public enum GearType {
+public enum TransmissionType {
     AUTO("Automatic"),
     MECH("Mechanic");
 
     public final String gearType;
 
-    GearType(String gearType) {
+    TransmissionType(String gearType) {
         this.gearType = gearType;
     }
 
