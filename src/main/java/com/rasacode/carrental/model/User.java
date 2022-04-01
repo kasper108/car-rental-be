@@ -5,8 +5,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +28,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id")
     private Address address;
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(referencedColumnName = "id")
+    private List<Reservation> reservations;
 }
