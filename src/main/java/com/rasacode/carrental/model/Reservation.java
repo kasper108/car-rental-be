@@ -21,7 +21,7 @@ public class Reservation {
     private Date dateReturned;
     private Double totalPrice;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(referencedColumnName = "id")
     private Car car;
 }

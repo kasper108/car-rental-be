@@ -30,7 +30,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(referencedColumnName = "id")
     private Address address;
 }
