@@ -1,9 +1,7 @@
 package com.rasacode.carrental.model;
 
 import com.rasacode.carrental.enumeration.Country;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -20,7 +18,11 @@ public class Address {
     private String flatNumber;
     private String city;
     private String zipCode;
+    private String phone;
+
     @Enumerated(EnumType.STRING)
     private Country country;
-    private String phone;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "address")
+    private User user;
 }

@@ -1,8 +1,8 @@
 package com.rasacode.carrental.enumeration;
 
 public enum UserStatus {
-    ADMIN("ADMIN"),
-    USER("USER");
+    ADMIN("Administrator"),
+    USER("User");
 
     public final String userStatus;
 

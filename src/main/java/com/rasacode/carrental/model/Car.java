@@ -25,4 +25,7 @@ public class Car {
     private FuelType fuelType;
     private byte sitCount;
     private Double dayPrice;
+
+    //@OneToOne(cascade = CascadeType.ALL, mappedBy = "car")
+    //private Reservation reservation;
 }

@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -18,10 +15,12 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long carId;
-    private Long userId;
     private Date startDate;
     private Date endDate;
     private Date dateReturned;
     private Double totalPrice;
+
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "car_id")
+    //private Car car;
 }
