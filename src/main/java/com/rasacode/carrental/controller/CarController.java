@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/car")
 public class CarController {
+
     private final CarService carService;
 
     public CarController(CarService carService) {
@@ -25,25 +26,25 @@ public class CarController {
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Car> getUserById(@PathVariable("id") Long id){
+    public ResponseEntity<Car> getCarById(@PathVariable("id") Long id){
         Car car = carService.findCarById(id);
         return new ResponseEntity<>(car, HttpStatus.OK);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Car> addUser(@RequestBody Car car){
+    public ResponseEntity<Car> addCar(@RequestBody Car car){
         Car newCar = carService.addCar(car);
         return new ResponseEntity<>(newCar, HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Car> updateUser(@RequestBody Car car){
+    public ResponseEntity<Car> updateCar(@RequestBody Car car){
         Car updateCar = carService.updateCar(car);
         return new ResponseEntity<>(updateCar, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable("id") Long id){
+    public ResponseEntity<?> deleteCar(@PathVariable("id") Long id){
         carService.deleteCar(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

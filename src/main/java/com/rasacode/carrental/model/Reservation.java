@@ -13,11 +13,20 @@ import java.util.Date;
 @Entity
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "start_date")
     private Date startDate;
+
+    @Column(name = "end_date")
     private Date endDate;
+
+    @Column(name = "date_returned")
     private Date dateReturned;
+
+    @Column(name = "total_price")
     private Double totalPrice;
 
     //@OneToOne(cascade = CascadeType.ALL)

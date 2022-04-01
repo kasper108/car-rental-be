@@ -23,6 +23,4 @@ public class Address {
     @Enumerated(EnumType.STRING)
     private Country country;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "address")
-    private User user;
 }

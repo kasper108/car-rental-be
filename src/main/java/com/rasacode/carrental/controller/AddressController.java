@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/address")
 public class AddressController {
+
     private final AddressService addressService;
 
     @Autowired
@@ -33,7 +34,7 @@ public class AddressController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Address> addUser(@RequestBody Address address){
+    public ResponseEntity<Address> addAddress(@RequestBody Address address){
         Address newAddress = addressService.addAddress(address);
         return new ResponseEntity<>(newAddress, HttpStatus.CREATED);
     }
@@ -45,7 +46,7 @@ public class AddressController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> updateAddress(@PathVariable("id") Long id){
+    public ResponseEntity<?> deleteAddress(@PathVariable("id") Long id){
         addressService.deleteAddress(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
