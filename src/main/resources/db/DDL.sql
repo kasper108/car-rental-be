@@ -1,3 +1,15 @@
+CREATE TABLE `addresses`
+(
+    `id`           bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `street_name`  varchar(100)       NOT NULL,
+    `house_number` varchar(100),
+    `flat_number`  varchar(100),
+    `city`         varchar(100)       NOT NULL,
+    `zip_code`     varchar(100),
+    `country`      varchar(100)       NOT NULL,
+    `phone`        varchar(100)       NOT NULL
+);
+
 CREATE TABLE `users`
 (
     `id`         bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -12,16 +24,16 @@ CREATE TABLE `users`
 
 );
 
-CREATE TABLE `addresses`
+CREATE TABLE `cars`
 (
-    `id`           bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    `street_name`  varchar(100)       NOT NULL,
-    `house_number` varchar(100),
-    `flat_number`  varchar(100),
-    `city`         varchar(100)       NOT NULL,
-    `zip_code`     varchar(100),
-    `country`      varchar(100)       NOT NULL,
-    `phone`        varchar(100)       NOT NULL
+    `id`        bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `reg_code`  varchar(10)        NOT NULL,
+    `brand`     varchar(50)        NOT NULL,
+    `year`      int                NOT NULL,
+    `transmission` varchar(40)     NOT NULL,
+    `fuel_type` varchar(50)        NOT NULL,
+    `sit_count` int                NOT NULL,
+    `day_price` double             NOT NULL
 );
 
 CREATE TABLE `reservations`
@@ -37,16 +49,5 @@ CREATE TABLE `reservations`
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
-CREATE TABLE `cars`
-(
-    `id`        bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    `reg_code`  varchar(10)        NOT NULL,
-    `brand`     varchar(50)        NOT NULL,
-    `year`      int                NOT NULL,
-    `gear_auto` boolean            NOT NULL,
-    `fuel_type` varchar(50)        NOT NULL,
-    `sit_count` int                NOT NULL,
-    `day_price` double             NOT NULL
-);
 
 
