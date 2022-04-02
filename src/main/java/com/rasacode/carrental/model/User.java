@@ -1,6 +1,6 @@
 package com.rasacode.carrental.model;
 
-import com.rasacode.carrental.enumeration.UserStatus;
+import com.rasacode.carrental.enumeration.UserType;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,12 +12,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", unique = true, nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
-    private String secondName;
+    private String lastName;
     private Date birthDate;
     private String password;
 
@@ -26,13 +28,9 @@ public class User {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private UserStatus userStatus;
+    private UserType userType;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(referencedColumnName = "id")
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
-
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(referencedColumnName = "id")
-    private List<Reservation> reservations;
 }

@@ -12,14 +12,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "cars")
 public class Car {
     @Id
+    @Column(name = "id", unique = true, nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String regCode;
     private String brand;
     private int year;
-    private byte sitCount;
+    private int sitCount;
     private Double dayPrice;
 
     @Enumerated(EnumType.STRING)

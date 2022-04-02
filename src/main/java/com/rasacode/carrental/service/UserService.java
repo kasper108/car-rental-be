@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -29,6 +30,11 @@ public class UserService {
     }
 
     public User updateUser(User user){
+        // istarukti useri pagal ID
+        // istrauktam useriui sudeti visus laukus is is to per parametrus atejusio userio
+        // isaugoti user
+
+
         return userRepository.save(user);
     }
 

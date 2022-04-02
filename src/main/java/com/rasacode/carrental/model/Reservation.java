@@ -11,17 +11,19 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "reservations")
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "id", unique = true, nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date startDate;
     private Date endDate;
     private Date dateReturned;
     private Double totalPrice;
+    private Long userId;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(referencedColumnName = "id")
+    @ManyToOne()
+    @JoinColumn(name = "car_id")
     private Car car;
 }

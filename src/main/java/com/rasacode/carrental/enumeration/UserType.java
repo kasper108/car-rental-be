@@ -1,12 +1,12 @@
 package com.rasacode.carrental.enumeration;
 
-public enum UserStatus {
+public enum UserType {
     ADMIN("Administrator"),
     USER("User");
 
     public final String userStatus;
 
-    UserStatus(String userStatus) {
+    UserType(String userStatus) {
         this.userStatus = userStatus;
     }
 
