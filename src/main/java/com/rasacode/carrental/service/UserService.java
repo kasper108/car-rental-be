@@ -34,7 +34,6 @@ public class UserService {
         // istrauktam useriui sudeti visus laukus is is to per parametrus atejusio userio
         // isaugoti user
 
-
         return userRepository.save(user);
     }
 

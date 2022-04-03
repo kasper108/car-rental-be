@@ -37,7 +37,7 @@ public class CarService {
 
     public Car findCarById(Long id){
         return carRepository.findCarById(id).
-                orElseThrow(() -> new CarNotFoundException("User by id " + id + " was not found" ));
+                orElseThrow(() -> new CarNotFoundException("Car by id " + id + " was not found" ));
     }
 }
 

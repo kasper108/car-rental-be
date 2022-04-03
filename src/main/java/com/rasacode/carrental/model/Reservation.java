@@ -17,11 +17,22 @@ public class Reservation {
     @Column(name = "id", unique = true, nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "start_date", nullable = false)
     private Date startDate;
+
+    @Column(name = "end_date", nullable = false)
     private Date endDate;
+
+    @Column(name = "date_returned")
     private Date dateReturned;
+
+    @Column(name = "total_price", nullable = false)
     private Double totalPrice;
-    private Long userId;
+
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne()
     @JoinColumn(name = "car_id")
