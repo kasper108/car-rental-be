@@ -27,7 +27,20 @@ public class CarService {
         return carRepository.findAll();
     }
 
-    public Car updateCar(Car car){
+    public Car updateCar(Car carInfo){
+        Car car = carRepository.findCarById(carInfo.getId())
+                .orElseThrow(() -> new CarNotFoundException("Car by id " + carInfo.getId() + " was not found" ));
+
+        car.setRegCode(carInfo.getRegCode());
+        car.setBrand(carInfo.getBrand());
+        car.setDayPrice(carInfo.getDayPrice());
+        car.setFuelType(carInfo.getFuelType());
+        car.setSitCount(carInfo.getSitCount());
+        car.setTransmission(carInfo.getTransmission());
+        car.setYear(carInfo.getYear());
+
+        Car updatedCar = carRepository.save(car);
+
         return carRepository.save(car);
     }
 
@@ -36,8 +49,8 @@ public class CarService {
     }
 
     public Car findCarById(Long id){
-        return carRepository.findCarById(id).
-                orElseThrow(() -> new CarNotFoundException("Car by id " + id + " was not found" ));
+        return carRepository.findCarById(id)
+                .orElseThrow(() -> new CarNotFoundException("Car by id " + id + " was not found" ));
     }
 }
 
